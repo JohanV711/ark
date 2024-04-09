@@ -17,10 +17,9 @@ public class RegisterActivity extends Activity {
 
     private static final String TAG = "CustomAuthActivity";
     private String mCustomToken;
-
-    // [START declare_auth]
     private FirebaseAuth mAuth;
-    // [END declare_auth]
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +28,7 @@ public class RegisterActivity extends Activity {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    //Se verifica que el usuario haya accedido
     @Override
     public void onStart() {
         super.onStart();
@@ -37,6 +37,12 @@ public class RegisterActivity extends Activity {
         updateUI(currentUser);
     }
 
+    /*Cuando los usuarios acceden a tu app, envía sus credenciales de acceso
+    a tu servidor de autenticación. El servidor verifica las credenciales y muestra
+    un token personalizado si son válidas.
+    Después de recibir el token personalizado de tu servidor de autenticación,
+    se pasa a signInWithCustomToken para que el usuario acceda
+     */
     private void startSignIn() {
         mAuth.signInWithCustomToken(mCustomToken)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -57,7 +63,8 @@ public class RegisterActivity extends Activity {
                     }
                 });
     }
+    //Se actualiza la UI
     private void updateUI(FirebaseUser user) {
-
+    //no op
     }
 }
