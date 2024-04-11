@@ -1,2 +1,2 @@
 # Ark
-Práctica de Computación Móvil Ubicua y en la Nube. ¿Funciona?
+Práctica de Computación Móvil Ubicua y en la Nube.
