@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.cumn.ark.R;
 import com.cumn.ark.auth.Login;
 import com.google.firebase.auth.FirebaseUser;
