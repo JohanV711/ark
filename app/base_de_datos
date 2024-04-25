@@ -3,6 +3,10 @@ DEFAULT CHARACTER SET utf8
 COLLATE utf8_spanish2_ci;
 
 USE ark;
+CREATE TABLE USUARIO (
+  Id_Usuario INT NOT NULL
+  PRIMARY KEY (Id_Usuario)
+);
 
 CREATE TABLE MASCOTA (
   Id_Mascota INT NOT NULL,
