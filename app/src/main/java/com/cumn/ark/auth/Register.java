@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cumn.ark.MainActivity;
 import com.cumn.ark.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,12 +31,11 @@ public class Register extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), Register.class);
-            startActivity(intent);
-            finish();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+           startActivity(intent);
+           finish();
         }
     }
 
@@ -50,35 +50,45 @@ public class Register extends AppCompatActivity {
         buttonReg = findViewById(R.id.btn_register);
         textView = findViewById(R.id.loginNow);
 
-        textView.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-            finish();
+        textView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
         });
+        buttonReg.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String email, password;
+                email = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
 
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task){
+                                if (task.isSuccessful()) {
+                                   // FirebaseUser user = mAuth.getCurrentUser();
+                                    Toast.makeText(Register.this, "Account created.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
 
-        buttonReg.setOnClickListener(view -> {
-            String email, password;
-            email = String.valueOf(editTextEmail.getText());
-            password = String.valueOf(editTextPassword.getText());
-
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
-                return;
+                        });
             }
-            if (TextUtils.isEmpty(password)) {
-                Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(Register.this, "Account created.", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+
+
         });
     }
 }
