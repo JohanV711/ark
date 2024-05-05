@@ -8,4 +8,7 @@
     <string name="click_to_login">Click to login</string>
     <string name="hello_world">Hello world!</string>
     <string name="sign_out">SignOut</string>
+    <string name="horario">Horario</string>
+    <string name="atras"><![CDATA[<]]></string>
+    <string name="adelante"><![CDATA[>]]></string>
 </resources>
