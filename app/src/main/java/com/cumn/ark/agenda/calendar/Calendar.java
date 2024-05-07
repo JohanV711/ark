@@ -1,22 +1,17 @@
 package com.cumn.ark.agenda.calendar;
 
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.cumn.ark.R;
+import com.cumn.ark.auth.Register;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -28,7 +23,9 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectDate;
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
+    TextView buttonBack, buttonForward;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +33,26 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         initWidgets();
         selectDate = LocalDate.now();
         setMonthView();
+
+        buttonBack = findViewById(R.id.btn_back);
+        buttonForward = findViewById(R.id.btn_forward);
+
+        buttonBack.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                previousMonthAction(view);
+            }
+        });
+
+        buttonForward.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+               nextMonthAction(view);
+            }
+        });
+
         }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void setMonthView() {
         monthYearText.setText(monthYearFromDate(selectDate));
         ArrayList<String> daysInMonth = daysInMonthArray(selectDate);
@@ -48,7 +62,6 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private ArrayList<String> daysInMonthArray(LocalDate date) {
         ArrayList<String> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(date);
@@ -72,29 +85,27 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         monthYearText = findViewById(R.id.monthYearTV);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     private String monthYearFromDate(LocalDate date){
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMMM yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
             return date.format(formatter);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void previousMonthAction(View view){
         selectDate = selectDate.minusMonths(1);
         setMonthView();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void nextMonthAction(View view){
         selectDate = selectDate.plusMonths(1);
         setMonthView();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onItemClick(int position, String dayText) {
-        String message = "Selected date" + dayText + "" + monthYearFromDate(selectDate);
+        String message = "Selected date" + dayText + " " + monthYearFromDate(selectDate);
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
+
+
 }

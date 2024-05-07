@@ -14,11 +14,9 @@ import java.util.ArrayList;
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
 
     private final ArrayList<String> daysOfMonth;
-    private final OnItemListener onItemListener;
 
     public CalendarAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener) {
         this.daysOfMonth = daysOfMonth;
-        this.onItemListener = onItemListener;
     }
 
     @NonNull
@@ -42,6 +40,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
         return daysOfMonth.size();
     }
 
+    //Todo: este método no funciona correctamente, implementarlo con OnClickListener
     public interface OnItemListener{
         void onItemClick(int position, String dayText);
     }

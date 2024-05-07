@@ -10,6 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.R;
+import com.cumn.ark.agenda.calendar.Calendar;
 import com.cumn.ark.auth.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth auth;
     TextView textView;
-    Button buttonSignOut;
+    Button buttonSignOut, buttonCalendar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         buttonSignOut = findViewById(R.id.btn_signOut);
+        buttonCalendar = findViewById(R.id.btn_calendar);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         textView = findViewById(R.id.user_details);
@@ -37,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             textView.setText(user.getEmail());
-            buttonSignOut.findViewById(R.id.btn_signOut);
 
+            buttonSignOut.findViewById(R.id.btn_signOut);
             buttonSignOut.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
@@ -48,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
             });
+
+            buttonCalendar.findViewById(R.id.btn_calendar);
+            buttonCalendar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), Calendar.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+
         }
 
     }

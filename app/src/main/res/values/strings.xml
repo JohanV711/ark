@@ -11,4 +11,14 @@
     <string name="horario">Horario</string>
     <string name="atras"><![CDATA[<]]></string>
     <string name="adelante"><![CDATA[>]]></string>
+    <string name="month_date">Feb 2021</string>
+    <string name="lunes">LUN</string>
+    <string name="martes">MAR</string>
+    <string name="miercoles">MIE</string>
+    <string name="jueves">JUE</string>
+    <string name="viernes">VIE</string>
+    <string name="sabado">SAB</string>
+    <string name="domingo">DOM</string>
+    <string name="calendar">calendar</string>
+    <string name="_1">1</string>
 </resources>

@@ -15,7 +15,8 @@
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
-    <Button
+    <TextView
+        android:id="@+id/btn_back"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -23,6 +24,7 @@
         android:textColor="@color/black"
         android:background="@color/white"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:textSize="20sp"/>
 
     <TextView
@@ -30,11 +32,12 @@
         android:layout_width="0dp"
         android:layout_weight="2"
         android:layout_height="wrap_content"
-        android:text="Feb 2021"
+        android:text="@string/month_date"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"/>
-    <Button
+    <TextView
+        android:id="@+id/btn_forward"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -42,6 +45,7 @@
         android:textColor="@color/black"
         android:background="@color/white"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:textSize="20sp"/>
     </LinearLayout>
 
@@ -54,7 +58,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="LUN"
+            android:text="@string/lunes"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -62,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="MAR"
+            android:text="@string/martes"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -70,7 +74,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="MIE"
+            android:text="@string/miercoles"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -78,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="JUE"
+            android:text="@string/jueves"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -86,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="VIE"
+            android:text="@string/viernes"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -94,7 +98,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="SAB"
+            android:text="@string/sabado"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -102,7 +106,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="DOM"
+            android:text="@string/domingo"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"/>
