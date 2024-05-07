@@ -1,13 +1,12 @@
-package com.cumn.ark;
+package com.cumn.ark.anim;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cumn.ark.anim.Pet;
+import com.cumn.ark.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class mascota extends AppCompatActivity {
