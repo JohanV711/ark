@@ -1,13 +1,7 @@
 package com.cumn.ark.agenda;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.cumn.ark.R;
 
 public class Agenda extends AppCompatActivity {

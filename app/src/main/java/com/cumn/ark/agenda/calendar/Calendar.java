@@ -1,9 +1,7 @@
 package com.cumn.ark.agenda.calendar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
@@ -11,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.cumn.ark.R;
-import com.cumn.ark.auth.Register;
-
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
@@ -37,19 +33,9 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         buttonBack = findViewById(R.id.btn_back);
         buttonForward = findViewById(R.id.btn_forward);
 
-        buttonBack.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                previousMonthAction(view);
-            }
-        });
+        buttonBack.setOnClickListener(this::previousMonthAction);
 
-        buttonForward.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-               nextMonthAction(view);
-            }
-        });
+        buttonForward.setOnClickListener(this::nextMonthAction);
 
         }
 
