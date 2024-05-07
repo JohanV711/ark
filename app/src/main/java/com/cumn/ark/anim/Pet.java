@@ -8,11 +8,11 @@ public class Pet {
 
     // Constructor
     public Pet(String nombre, String tipo, String raza, String genero, double peso) {
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.raza = raza;
-        this.genero = genero;
-        this.peso = peso;
+        this.setNombre(nombre);
+        this.setTipo(tipo);
+        this.setRaza(raza);
+        this.setGenero(genero);
+        this.setPeso(peso);
     }
 
     // Métodos getters y setters
@@ -54,16 +54,5 @@ public class Pet {
 
     public void setPeso(double peso) {
         this.peso = peso;
-    }
-
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "nombre='" + nombre + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", raza='" + raza + '\'' +
-                ", genero='" + genero + '\'' +
-                ", peso=" + peso +
-                '}';
     }
 }
