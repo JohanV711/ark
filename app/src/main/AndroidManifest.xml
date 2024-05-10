@@ -16,6 +16,15 @@
             android:name=".auth.Register"
             android:exported="false" />
         <activity
+            android:name=".agenda.WeekViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".agenda.Calendar"
+            android:exported="false" />
+        <activity
+            android:name=".agenda.EventEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.Login"
             android:exported="true">
             <intent-filter>
