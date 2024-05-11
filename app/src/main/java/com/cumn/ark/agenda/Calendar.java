@@ -19,7 +19,7 @@ import com.cumn.ark.R;
 
 public class Calendar extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
-    private TextView monthYearText;
+    private TextView monthYearText, back, forward, scheduleText;
     private RecyclerView calendarRecyclerView;
 
 
@@ -29,20 +29,24 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         initWidgets();
+        buttons();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
     }
 
     private void initWidgets()
     {
+        back = findViewById(R.id.back);
+        forward = findViewById(R.id.forward);
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
-        monthYearText = findViewById(R.id.monthYearTV);
+        monthYearText = findViewById(R.id.date);
+        scheduleText = findViewById(R.id.btn_schedule);
     }
 
     private void setMonthView()
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
-        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
+        ArrayList<LocalDate> daysInMonth = daysInMonthArray();
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
@@ -71,7 +75,16 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
             setMonthView();
         }
     }
+    private void buttons(){
 
+        back.setOnClickListener(this::previousMonthAction);
+        forward.setOnClickListener(this::nextMonthAction);
+        scheduleText.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), Schedule.class);
+            startActivity(intent);
+            finish();
+        });
+    }
     public void weeklyAction(View view)
     {
         startActivity(new Intent(this, WeekViewActivity.class));
