@@ -15,6 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_gravity="bottom"
-        android:text="calcula la ruta en coche" />
+        android:text="Pulsa y calcula la ruta en coche" />
 
 </FrameLayout>
