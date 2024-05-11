@@ -13,8 +13,9 @@ firebaseAuth = "23.0.0"
 
 googlePlayMapVersion = "18.2.0"
 
-retrofitVersion = "2.8.1"
-kotlinCoroutinesversion = "1.7.3"
+retrofitVersion = "2.11.0"
+kotlinCoroutinesversion = "1.8.1"
+firebaseDatabase = "21.0.0"
 
 [libraries]
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
@@ -34,6 +35,7 @@ googlePlayServicesMaps = { group = "com.google.android.gms", name = "play-servic
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
 retrofitConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
 kotlinCoroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinCoroutinesversion" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
