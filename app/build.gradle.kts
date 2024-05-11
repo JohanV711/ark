@@ -40,6 +40,15 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
+
+    //Maps
+    implementation(libs.googlePlayServicesMaps)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofitConverter)
+    implementation(libs.kotlinCoroutines)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
