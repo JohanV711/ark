@@ -75,9 +75,11 @@
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/btn_register"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
         android:id="@+id/loginNow"
-        android:text="@string/click_to_login"
+        android:textColor="@color/white"
+        android:text="Inicia Sesión"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
