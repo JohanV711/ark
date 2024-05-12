@@ -10,20 +10,22 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.agenda.CalendarActivity;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class inicio extends AppCompatActivity {
     Button buttonReg;
     Button buttonCalendar;
+    Button botonActividad;
     ImageView img;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         buttonCalendar = findViewById(R.id.btn_calendar);
         buttonReg = findViewById(R.id.btn_register);
-        img=findViewById(R.id.ajuste);
-        buttonReg.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+        botonActividad = findViewById(R.id.btn_actividad);
+        img = findViewById(R.id.ajuste);
+        buttonReg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), mascota.class);
                 startActivity(intent);
                 finish();
@@ -36,13 +38,22 @@ public class inicio extends AppCompatActivity {
             finish();
         });
 
-        img.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+        img.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), profile.class);
                 startActivity(intent);
                 finish();
             }
 
+        });
+
+        botonActividad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ActivityPet.class);
+                startActivity(intent);
+                finish();
+            }
         });
 
         Button btnConectar = findViewById(R.id.btnConectar);

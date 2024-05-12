@@ -149,104 +149,25 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
                     android:text="Mis actividades"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    android:layout_marginStart="9dp"
-                    android:layout_marginTop="15dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:srcCompat="@drawable/collar"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="63dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Paseo"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="122dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:srcCompat="@drawable/revision"
-                    android:layout_marginStart="134dp"
-                    android:layout_marginTop="62dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Veterinario"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="133dp"
-                    android:layout_marginTop="122dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:srcCompat="@drawable/cabello"
-                    android:layout_marginStart="218dp"
-                    android:layout_marginTop="62dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-                <TextView
-                    android:id="@+id/textView7"
+                <Button
+                    android:id="@+id/btn_actividad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grooming"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="227dp"
-                    android:layout_marginTop="124dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Ver actividades"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:srcCompat="@drawable/anadir"
-                    android:layout_marginStart="311dp"
-                    android:layout_marginTop="62dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Añadir"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="317dp"
-                    android:layout_marginTop="121dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
