@@ -20,16 +20,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".auth.Register"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.WeekViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.Calendar"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.EventEditActivity"
+            android:name=".agenda.CalendarActivity"
             android:exported="false" />
         <activity
             android:name=".auth.Login"
