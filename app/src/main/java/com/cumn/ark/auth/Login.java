@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.MainActivity;
 import com.cumn.ark.R;
+import com.cumn.ark.inicio;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -82,7 +83,7 @@ public class Login extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(Login.this, "Login Successful",
                                             Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class/*TODO crear la clase Dashboard con sus funcionalidades y reemplazar esta*/);
+                                    Intent intent = new Intent(getApplicationContext(), inicio.class/*TODO crear la clase Dashboard con sus funcionalidades y reemplazar esta*/);
                                     startActivity(intent);
                                     finish();
                                 } else {
