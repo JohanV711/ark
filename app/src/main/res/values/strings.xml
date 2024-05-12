@@ -8,6 +8,21 @@
     <string name="click_to_login">Click to login</string>
     <string name="hello_world">Hello world!</string>
     <string name="sign_out">SignOut</string>
+<<<<<<< HEAD
+    <string name="lunes">L</string>
+    <string name="martes">M</string>
+    <string name="miercoles">X</string>
+    <string name="jueves">J</string>
+    <string name="viernes">V</string>
+    <string name="sabado">S</string>
+    <string name="domingo">D</string>
+    <string name="back"><![CDATA[<]]></string>
+    <string name="forward"><![CDATA[>]]></string>
+    <string name="date_text">Feb 2021</string>
+    <string name="calendar">Calendar</string>
+    <string name="day">1</string>
+    <string name="name">Name:</string>
+=======
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calendario">Calendario</string>
@@ -18,6 +33,7 @@
     <string name="nuevo_evento">Nuevo evento:</string>
     <string name="titulo">Título</string>
     <string name="descripcion">Descripción</string>
+>>>>>>> main
     <string name="descripcionDelLogo">logo de Ark</string>
     <string name="welcome">¡Bienvenido!</string>
     <string name="registerNow">¿No estás registrado?</string>
