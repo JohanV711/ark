@@ -18,6 +18,7 @@ kotlinCoroutinesversion = "1.8.1"
 firebaseDatabase = "21.0.0"
 firebaseStorage = "21.0.0"
 firebaseFirestore = "25.0.0"
+picasso="2.71828"
 
 [libraries]
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
@@ -40,7 +41,7 @@ kotlinCoroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
-
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 

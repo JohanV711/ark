@@ -69,7 +69,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="549dp"
 
                 android:background="@drawable/top_back">
 
@@ -92,88 +92,85 @@
                     android:id="@+id/tipo"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Tipo"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/name"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/raza"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Raza"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/tipo"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tipo" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/genero"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Genero"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/raza"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/raza" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/peso"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Peso en kg"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/genero"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genero" />
+
+
 
                 <Button
-                    android:id="@+id/btn_select_image"
+                    android:id="@+id/btn_photo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar imagen"
-                    android:onClick="selectImageFromGallery"
-                    app:layout_constraintTop_toBottomOf="@+id/peso"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/button_redondo"
+                    android:text="FOTO"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
-                    />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_select_image"
+                    app:layout_constraintHorizontal_bias="0.703"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    />
+                    app:layout_constraintTop_toBottomOf="@+id/peso" />
 
                 <Button
                     android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/button_redondo"
                     android:text="Continuar"
                     android:textColor="@color/white"
-                    android:background="@drawable/button_redondo"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintHorizontal_bias="0.211"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/peso" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

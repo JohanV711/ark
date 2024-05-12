@@ -25,9 +25,15 @@
         <activity
             android:name=".profile"
             android:exported="false" />
-        <activity
-            android:name=".mascota"
-            android:exported="false" />
+        <activity android:name=".mascota"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+
         <activity
             android:name=".agenda.schedule.prueba"
             android:exported="false" />

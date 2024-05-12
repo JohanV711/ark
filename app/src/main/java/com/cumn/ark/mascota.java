@@ -3,21 +3,19 @@ package com.cumn.ark;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,13 +31,19 @@ public class mascota extends AppCompatActivity {
     private EditText generoEditText;
     private EditText pesoEditText;
 
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    private FirebaseStorage storage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascota);
 
         // Inicializar Firebase
-        FirebaseApp.initializeApp(this);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         nombreEditText = findViewById(R.id.name);
         tipoEditText = findViewById(R.id.tipo);
@@ -47,7 +51,7 @@ public class mascota extends AppCompatActivity {
         generoEditText = findViewById(R.id.genero);
         pesoEditText = findViewById(R.id.peso);
 
-        Button selectImageButton = findViewById(R.id.btn_select_image);
+        Button selectImageButton = findViewById(R.id.btn_photo);
         selectImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,30 +63,49 @@ public class mascota extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerPet();
+                saveDataToFirestore();
             }
         });
     }
 
     private void openImagePicker() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
-        startActivityForResult(intent, REQUEST_IMAGE_PICK);
+        startActivityForResult(Intent.createChooser(intent, "Selecciona una imagen"), REQUEST_IMAGE_PICK);
     }
 
-    private void registerPet() {
+    private void saveDataToFirestore() {
         if (imageUri != null) {
-            // Guardar la mascota en Firestore
-            savePetData();
+            // Subir la imagen al almacenamiento de Firebase
+            uploadImageToStorage();
         } else {
-            // No se ha seleccionado ninguna imagen
             Toast.makeText(this, "Selecciona una imagen", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void savePetData() {
-        // Obtener una referencia a la base de datos de Firebase
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private void uploadImageToStorage() {
+        // Obtener una referencia al almacenamiento de Firebase
+        StorageReference storageRef = storage.getReference().child("img").child("mascota_" + System.currentTimeMillis());
+
+        // Subir la imagen al almacenamiento
+        storageRef.putFile(imageUri)
+                .addOnSuccessListener(taskSnapshot -> {
+                    // Si la subida de la imagen es exitosa, obtener la URL de descarga
+                    storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        String imageUrl = uri.toString();
+                        savePetData(imageUrl);
+                    }).addOnFailureListener(e -> {
+                        Toast.makeText(mascota.this, "Error al obtener la URL de la imagen", Toast.LENGTH_SHORT).show();
+                    });
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(mascota.this, "Error al subir la imagen", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void savePetData(String imageUrl) {
+        // Obtener el ID del usuario actualmente autenticado
+        String usuarioId = mAuth.getCurrentUser().getUid();
 
         // Obtener los valores ingresados por el usuario
         String nombre = nombreEditText.getText().toString();
@@ -91,34 +114,29 @@ public class mascota extends AppCompatActivity {
         String genero = generoEditText.getText().toString();
         String peso = pesoEditText.getText().toString();
 
-        // Crear un nuevo objeto mascota con los datos
+        // Crear un nuevo objeto mascota con los datos y la URL de la imagen
         Map<String, Object> mas = new HashMap<>();
         mas.put("nombre", nombre);
         mas.put("tipo", tipo);
         mas.put("raza", raza);
         mas.put("genero", genero);
         mas.put("peso", peso);
+        mas.put("imagenURL", imageUrl);
+        mas.put("usuarioID", usuarioId); // Agregar el ID del usuario
 
-        // Agregar el objeto mascota a la colección "prueba" en Firestore
+        // Guardar los datos de la mascota en la colección "prueba" en Firestore
         db.collection("prueba")
                 .add(mas)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(mascota.this, "Mascota registrada exitosamente", Toast.LENGTH_SHORT).show();
-                        // Redirigir a profile.class
-                        Intent intent = new Intent(mascota.this, profile.class);
-                        startActivity(intent);
-                        finish(); // Finalizar la actividad actual si ya no es necesaria en la pila de actividades
-                    }
+                .addOnSuccessListener(documentReference -> {
+                    Intent intent = new Intent(mascota.this, profile.class);
+                    startActivity(intent);
+                    finish();
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(mascota.this, "Error al registrar la mascota", Toast.LENGTH_SHORT).show();
-                    }
+                .addOnFailureListener(e -> {
+                    Toast.makeText(mascota.this, "Error al registrar la mascota", Toast.LENGTH_SHORT).show();
                 });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -129,6 +147,3 @@ public class mascota extends AppCompatActivity {
         }
     }
 }
-
-
-

@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.agenda.Calendar;
+import com.cumn.ark.agenda.schedule.prueba;
 import com.cumn.ark.auth.Login;
 public class inicio extends AppCompatActivity {
     Button buttonReg;
@@ -29,7 +30,7 @@ public class inicio extends AppCompatActivity {
         });
         buttonCalendar.findViewById(R.id.btn_calendar);
         buttonCalendar.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), Calendar.class);
+            Intent intent = new Intent(getApplicationContext(), prueba.class);
             startActivity(intent);
             finish();
         });
