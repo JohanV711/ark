@@ -81,9 +81,8 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Login.this, "Login Successful",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), inicio.class/*TODO crear la clase Dashboard con sus funcionalidades y reemplazar esta*/);
+
+                                    Intent intent = new Intent(getApplicationContext(), inicio.class);
                                     startActivity(intent);
                                     finish();
                                 } else {

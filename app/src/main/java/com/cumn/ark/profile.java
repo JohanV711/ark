@@ -1,4 +1,5 @@
 package com.cumn.ark;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,12 +20,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cumn.ark.locationService.MainActivityMaps;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class profile extends AppCompatActivity {
+    ImageView img;
     ListView listView;
+    Button  buttonMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +37,21 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         listView = findViewById(R.id.listView);
+        img=findViewById(R.id.imageView2);
         MyAdapter myAdapter = new MyAdapter();
         listView.setAdapter(myAdapter);
+        buttonMaps.findViewById(R.id.btn_map);
+        buttonMaps.setOnClickListener(view ->{
+            Intent intent = new Intent(getApplicationContext(), MainActivityMaps.class);
+            startActivity(intent);
+            finish();
+        });
 
+        img.setOnClickListener(view ->{
+            Intent intent = new Intent(getApplicationContext(), inicio.class);
+            startActivity(intent);
+            finish();
+        });
 
     } // OnCreate Method Close Here =============
 

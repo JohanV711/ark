@@ -18,7 +18,15 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <activity
+            android:name=".inicio"
+            android:exported="false" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
+            android:name=".mascota"
+            android:exported="false" />
         <activity
             android:name=".auth.Register"
             android:exported="false" />
