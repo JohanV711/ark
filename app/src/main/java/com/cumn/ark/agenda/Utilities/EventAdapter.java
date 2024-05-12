@@ -4,41 +4,55 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cumn.ark.R;
 
 import java.util.List;
 
-public class EventAdapter extends ArrayAdapter<Event>
-{
-    public EventAdapter(@NonNull Context context, List<Event> events)
-    {
-        super(context, 0, events);
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
+
+    private List<Event> events;
+    private Context context;
+
+    public EventAdapter(Context context, List<Event> events) {
+        this.context = context;
+        this.events = events;
+    }
+
+    public static class EventViewHolder extends RecyclerView.ViewHolder {
+        TextView eventTitle;
+        TextView eventTime;
+        TextView eventDescription;
+
+        public EventViewHolder(View itemView) {
+            super(itemView);
+            eventTitle = itemView.findViewById(R.id.textViewNombreEvento);
+            eventTime = itemView.findViewById(R.id.textViewHora);
+            eventDescription = itemView.findViewById(R.id.textViewDescripcionEvento);
+        }
     }
 
     @NonNull
-    public View getView(int position, @Nullable View eventView, @NonNull ViewGroup parent) {
-        Event event = getItem(position);
+    @Override
+    public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_cell, parent, false);
+        return new EventViewHolder(itemView);
+    }
 
-        if (eventView == null) {
-            eventView = LayoutInflater.from(getContext()).inflate(R.layout.event_cell, parent, false);
-        }
+    @Override
+    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
+        Event event = events.get(position);
+        holder.eventTitle.setText(event.getTitle());
+        holder.eventTime.setText(event.getTime());
+        holder.eventDescription.setText(event.getDescription());
+    }
 
-        TextView eventTitle = eventView.findViewById(R.id.textViewNombreEvento);
-        TextView eventTime = eventView.findViewById(R.id.textViewHora);
-        TextView eventDescription = eventView.findViewById(R.id.textViewDescripcionEvento);
-
-        if (event != null) {
-            eventTitle.setText(event.getTitle());
-            eventTime.setText(event.getTime());
-            eventDescription.setText(event.getDescription());
-        }
-
-        return eventView;
+    @Override
+    public int getItemCount() {
+        return events.size();
     }
 }
