@@ -6,5 +6,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lavender">#CC79FF</color>
-
+    <color name="darkCian">#30727F</color>
+    <color name="lightCian">#9EE8F6</color>
+    <color name="darkBlue">#121D33</color>
+>>>>>>> main
 </resources>

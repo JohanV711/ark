@@ -18,4 +18,10 @@
     <string name="nuevo_evento">Nuevo evento:</string>
     <string name="titulo">Título</string>
     <string name="descripcion">Descripción</string>
+    <string name="descripcionDelLogo">logo de Ark</string>
+    <string name="welcome">¡Bienvenido!</string>
+    <string name="registerNow">¿No estás registrado?</string>
+    <string name="ya_tienes_cuenta_inicia_sesion">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="crea_una_cuenta">Crea una cuenta</string>
 </resources>

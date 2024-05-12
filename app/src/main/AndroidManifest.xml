@@ -16,30 +16,6 @@
             android:name=".agenda.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".agenda.Agenda"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.schedule.prueba"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.Fragments.ScheduleView"
-            android:exported="false" />
-        <activity
-            android:name=".auth.Register"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.DailyCalendarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.WeekViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.Fragments.CalendarView"
-            android:exported="false" />
-        <activity
-            android:name=".agenda.EventEditActivity"
-            android:exported="false" />
-        <activity
             android:name=".auth.Login"
             android:exported="true">
             <intent-filter>
