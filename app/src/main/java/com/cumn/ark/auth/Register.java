@@ -50,48 +50,35 @@ public class Register extends AppCompatActivity {
         buttonReg = findViewById(R.id.btn_register);
         textView = findViewById(R.id.loginNow);
 
-        textView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
+        textView.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
         });
-        buttonReg.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                String email, password;
-                email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextPassword.getText());
+        buttonReg.setOnClickListener(view -> {
+            String email, password;
+            email = String.valueOf(editTextEmail.getText());
+            password = String.valueOf(editTextPassword.getText());
 
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task){
-                                if (task.isSuccessful()) {
-                                   // FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(Register.this, "Account created.", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), Login.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        });
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
+                return;
             }
-
-
+            if (TextUtils.isEmpty(password)) {
+                Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Register.this, "Cuenta creada", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(Register.this, "Fallo de autenticación", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
     }
 }
