@@ -128,12 +128,19 @@ public class mascota extends AppCompatActivity {
         db.collection("prueba")
                 .add(mas)
                 .addOnSuccessListener(documentReference -> {
-                    Intent intent = new Intent(mascota.this, profile.class);
+                    Toast.makeText(mascota.this, "Mascota registrada exitosamente", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mascota.this, inicio.class);
+                    intent.putExtra("nombre", nombre);
+                    intent.putExtra("tipo", tipo);
+                    intent.putExtra("raza", raza);
+                    intent.putExtra("genero", genero);
+                    intent.putExtra("peso", peso);
+                    intent.putExtra("imagenURL", imageUrl);
                     startActivity(intent);
                     finish();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(mascota.this, "Error al registrar la mascota", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mascota.this, "Error al ingresar mascota", Toast.LENGTH_SHORT).show();
                 });
     }
 
