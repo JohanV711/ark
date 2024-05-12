@@ -12,6 +12,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.R;
+import com.cumn.ark.agenda.CalendarActivity;
 import com.cumn.ark.auth.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     TextView textView;
     ImageButton buttonSignOut;
+    ImageButton buttonCalendar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
             buttonSignOut.setOnClickListener(view -> {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            });
+            buttonCalendar.setOnClickListener(view -> {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
                 startActivity(intent);
                 finish();
             });

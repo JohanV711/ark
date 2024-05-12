@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.cumn.ark"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -31,6 +31,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     buildToolsVersion = "34.0.0"
+
+
+    buildFeatures{
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -40,6 +46,9 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.recyclerview)
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
