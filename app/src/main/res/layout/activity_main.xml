@@ -4,21 +4,137 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/user_details"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/lightCian">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world"/>
-    <Button
-        android:id="@+id/btn_signOut"
-        android:text="@string/sign_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:background="@color/darkCian"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:tint="@color/white"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_margin="13dp"
+            android:layout_alignParentTop="true">
+        </ImageView>
+
+    </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp">
+
+            <TextView
+                android:id="@+id/user_details"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/hello_world"
+                android:layout_marginStart="30dp"
+                android:textColor="@color/darkCian"/>
+
+            <ImageButton
+                    android:id="@+id/btn_signOut"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/baseline_exit_to_app_24"
+                    android:tint="@color/darkCian"
+                    android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@android:color/transparent">
+
+                <ImageButton
+                    android:id="@+id/btn_calendar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_calendar_month_24"
+
+                    android:background="@color/white"
+                    android:layout_margin="10dp"
+                    app:tint="@color/darkCian"/>
+
+                <ImageButton
+                    android:id="@+id/btn_maps"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_location_pin_24"
+
+                    android:background="@color/white"
+                    android:layout_margin="10dp"
+                    app:tint="@color/darkCian"/>
+
+
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@android:color/transparent">
+
+        <ImageButton
+            android:id="@+id/btn_pets"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_pets_24"
+
+            android:background="@color/white"
+            android:layout_margin="10dp"
+            app:tint="@color/darkCian"/>
+
+        <ImageButton
+            android:id="@+id/btn_activities"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_interests_24"
+
+            android:background="@color/white"
+            android:layout_margin="10dp"
+            app:tint="@color/darkCian"/>
+
+
+    </LinearLayout>
 
 </LinearLayout>
