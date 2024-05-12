@@ -9,7 +9,6 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.locationService.MainActivityMaps;
-
 public class profile extends AppCompatActivity {
     ImageView img;
     ListView listView;
@@ -20,10 +19,9 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        img = findViewById(R.id.imageView2);
+        buttonMaps = findViewById(R.id.btn_map); // Inicializar el botón correctamente
 
-        img=findViewById(R.id.imageView2);
-
-        buttonMaps.findViewById(R.id.btn_map);
         buttonMaps.setOnClickListener(view ->{
             Intent intent = new Intent(getApplicationContext(), MainActivityMaps.class);
             startActivity(intent);
@@ -35,9 +33,6 @@ public class profile extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
     }
-
-
-
 }
+

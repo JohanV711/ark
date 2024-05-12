@@ -129,7 +129,7 @@ public class mascota extends AppCompatActivity {
                 .add(mas)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(mascota.this, "Mascota registrada exitosamente", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(mascota.this, inicio.class);
+                    Intent intent = new Intent(mascota.this, profile.class);
                     intent.putExtra("nombre", nombre);
                     intent.putExtra("tipo", tipo);
                     intent.putExtra("raza", raza);
