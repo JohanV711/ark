@@ -1,10 +1,14 @@
 package com.cumn.ark.anim;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Pet {
     private String nombre;
     private String tipo;
     private String raza;
     private String genero;
     private double peso;
+    private String image;
 
     // Constructor
     public Pet(String nombre, String tipo, String raza, String genero, double peso) {
@@ -54,5 +58,13 @@ public class Pet {
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
