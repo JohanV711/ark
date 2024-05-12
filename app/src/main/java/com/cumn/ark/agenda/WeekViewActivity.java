@@ -12,12 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.cumn.ark.R;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import com.cumn.ark.R;
 
 public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
@@ -90,5 +89,10 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     public void newEventAction(View view)
     {
         startActivity(new Intent(this, EventEditActivity.class));
+    }
+
+    public void dailyAction(View view)
+    {
+        startActivity(new Intent(this, DailyCalendarActivity.class));
     }
 }
