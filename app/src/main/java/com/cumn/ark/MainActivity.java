@@ -39,14 +39,11 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(user.getEmail());
             buttonSignOut.findViewById(R.id.btn_signOut);
 
-            buttonSignOut.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent(getApplicationContext(), Login.class);
-                    startActivity(intent);
-                    finish();
-                }
+            buttonSignOut.setOnClickListener(view -> {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
             });
         }
 
