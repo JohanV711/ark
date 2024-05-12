@@ -13,10 +13,16 @@
         android:theme="@style/Theme.Ark"
         tools:targetApi="31">
         <activity
+            android:name=".agenda.CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".agenda.Agenda"
+            android:exported="false" />
+        <activity
             android:name=".agenda.schedule.prueba"
             android:exported="false" />
         <activity
-            android:name=".agenda.Schedule"
+            android:name=".agenda.Fragments.ScheduleView"
             android:exported="false" />
         <activity
             android:name=".auth.Register"
@@ -28,7 +34,7 @@
             android:name=".agenda.WeekViewActivity"
             android:exported="false" />
         <activity
-            android:name=".agenda.Calendar"
+            android:name=".agenda.Fragments.CalendarView"
             android:exported="false" />
         <activity
             android:name=".agenda.EventEditActivity"
