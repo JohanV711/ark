@@ -69,7 +69,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
+                android:layout_height="500dp"
 
                 android:background="@drawable/top_back">
 
@@ -140,6 +140,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="16dp" />
+
+                <Button
+                    android:id="@+id/btn_select_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccionar imagen"
+                    android:onClick="selectImageFromGallery"
+                    app:layout_constraintTop_toBottomOf="@+id/peso"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_select_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
                 <Button
                     android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
@@ -147,7 +170,7 @@
                     android:text="Continuar"
                     android:textColor="@color/white"
                     android:background="@drawable/button_redondo"
-                    app:layout_constraintTop_toBottomOf="@+id/peso"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="16dp" />

@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.retrofitConverter)
     implementation(libs.kotlinCoroutines)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.firestore)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

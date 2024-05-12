@@ -6,20 +6,26 @@ public class mascotas {
     private String raza;
     private String genero;
     private String peso;
+    private String imagenURL;
+    private String usuarioID;
 
+    // Constructor vacío requerido para Firebase
     public mascotas() {
-        // Constructor vacío requerido por Firebase
     }
 
-    public mascotas(String nombre, String tipo, String raza, String genero, String peso) {
+    public mascotas(String nombre, String tipo, String raza, String genero, String peso, String imagenURL, String usuarioID) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.raza = raza;
         this.genero = genero;
         this.peso = peso;
+        this.imagenURL = imagenURL;
+        this.usuarioID = usuarioID;
     }
 
-    // Getters y setters para los campos de la mascota
+    // Métodos getter y setter para acceder a los campos de la mascota
+    // (puedes generarlos automáticamente en Android Studio)
+
     public String getNombre() {
         return nombre;
     }
@@ -52,11 +58,28 @@ public class mascotas {
         this.genero = genero;
     }
 
-    public String getPeso() {
+    public  String getPeso() {
         return peso;
     }
 
     public void setPeso(String peso) {
         this.peso = peso;
     }
+
+    public String getImagenURL() {
+        return imagenURL;
+    }
+
+    public void setImagenURL(String imagenURL) {
+        this.imagenURL = imagenURL;
+    }
+
+    public String getUsuarioID() {
+        return usuarioID;
+    }
+
+    public void setUsuarioID(String usuarioID) {
+        this.usuarioID = usuarioID;
+    }
 }
+
