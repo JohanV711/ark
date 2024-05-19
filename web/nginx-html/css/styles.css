@@ -1,0 +1,220 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Lobster', cursive;
+}
+
+/* Estilos de la cabecera */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: purple;
+    padding: 10px 20px;
+    color: white;
+}
+
+header .logo {
+    font-size: 1.5em;
+}
+
+.menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.auth {
+    display: flex;
+    gap: 10px;
+}
+
+.auth .login {
+    color: white;
+    text-decoration: none;
+    background-color: #6a0dad;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.auth .register {
+    color: white;
+    text-decoration: none;
+    background-color: #4b0082;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.auth .login:hover, .auth .register:hover {
+    background-color: #3a005f;
+}
+
+/* Estilos del contenido principal */
+main {
+    display: flex;
+    background-color: #f0e6ff;
+    padding: 20px;
+    flex: 1;
+    align-items: center; /* Alineación vertical */
+    justify-content: center; /* Centrado horizontal */
+}
+
+.content {
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Separación entre la imagen y el contenido */
+    flex: 2;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.news{
+    text-align: center;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+footer .about {
+    margin-left: 20px;
+}
+
+
+
+.news-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.news {
+    text-align: center;
+}
+
+.news h2 {
+    margin-bottom: 10px;
+}
+
+.news ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news li {
+    margin-bottom: 10px;
+}
+
+.news a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.news a:hover {
+    color: #6a0dad;
+}
+
+.maps-menu{
+    background-color: green;
+    border-radius: 5%;
+}
+
+.body_container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .body_container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto; 
+    }
+    
+
+    .menu {
+        justify-content: flex-start;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .auth {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .content {
+        padding: 15px;
+        margin-left: 0; /* Eliminar margen izquierdo en móvil */
+    }
+
+    .image-container {
+        order: -1;
+        margin-bottom: 20px;
+    }
+}
