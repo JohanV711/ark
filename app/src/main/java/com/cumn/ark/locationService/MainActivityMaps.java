@@ -1,14 +1,18 @@
 package com.cumn.ark.locationService;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.R;
+import com.cumn.ark.inicio;
+import com.cumn.ark.profile;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -17,6 +21,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +42,9 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
     private String start = "";
     private String end = "";
     private Polyline poly;
+
+    private ImageButton back;
+
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -80,6 +88,14 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_maps);
+
+        //boton atrás
+        back=back = findViewById(R.id.backMaps);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(this, profile.class);
+            startActivity(intent);
+            finish();
+        });
 
         Button btnCalculate = findViewById(R.id.btnCalculateRoute);
         btnCalculate.setOnClickListener(v -> {
