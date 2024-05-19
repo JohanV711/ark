@@ -19,7 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -196,7 +197,7 @@
 
             <Button
                 android:id="@+id/btn_map"
-                android:text="Busca tu veterinario más cercano"
+                android:text="Consulta el mapa y encuentra lo que buscas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

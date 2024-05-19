@@ -1,6 +1,7 @@
 package com.cumn.ark;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,19 @@ public class inicio extends AppCompatActivity {
                 finish();
             }
 
+        });
+
+        Button btnConectar = findViewById(R.id.btnConectar);
+        btnConectar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://192.168.1.101:8080/pagina.html";
+
+                // Crear un intent implícito para abrir la página web en un navegador
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
         });
 
     }
