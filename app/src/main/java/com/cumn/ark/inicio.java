@@ -9,7 +9,9 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cumn.ark.agenda.schedule.prueba;
+import com.cumn.ark.agenda.CalendarActivity;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class inicio extends AppCompatActivity {
     Button buttonReg;
     Button buttonCalendar;
@@ -28,9 +30,8 @@ public class inicio extends AppCompatActivity {
             }
 
         });
-        buttonCalendar.findViewById(R.id.btn_calendar);
         buttonCalendar.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), prueba.class);
+            Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
             startActivity(intent);
             finish();
         });
