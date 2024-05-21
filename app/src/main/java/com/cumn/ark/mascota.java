@@ -7,7 +7,6 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -31,26 +30,16 @@ public class mascota extends AppCompatActivity {
     private EditText razaEditText;
     private EditText generoEditText;
     private EditText pesoEditText;
+    private EditText edadEditText;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseStorage storage;
 
-    private ImageButton back;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascota);
-
-
-        //boton hacia atrás
-        back=back = findViewById(R.id.backMascota);
-        back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, inicio.class);
-            startActivity(intent);
-            finish();
-        });
 
         // Inicializar Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -62,6 +51,7 @@ public class mascota extends AppCompatActivity {
         razaEditText = findViewById(R.id.raza);
         generoEditText = findViewById(R.id.genero);
         pesoEditText = findViewById(R.id.peso);
+        edadEditText = findViewById(R.id.edad);
 
         Button selectImageButton = findViewById(R.id.btn_photo);
         selectImageButton.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +115,13 @@ public class mascota extends AppCompatActivity {
         String raza = razaEditText.getText().toString();
         String genero = generoEditText.getText().toString();
         String peso = pesoEditText.getText().toString();
+        String edad = edadEditText.getText().toString();
+
+        // Validar que todos los campos estén completos
+        if (nombre.isEmpty() || tipo.isEmpty() || raza.isEmpty() || genero.isEmpty() || peso.isEmpty() || edad.isEmpty()) {
+            Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Crear un nuevo objeto mascota con los datos y la URL de la imagen
         Map<String, Object> mas = new HashMap<>();
@@ -133,10 +130,11 @@ public class mascota extends AppCompatActivity {
         mas.put("raza", raza);
         mas.put("genero", genero);
         mas.put("peso", peso);
+        mas.put("edad", edad);
         mas.put("imagenURL", imageUrl);
         mas.put("usuarioID", usuarioId); // Agregar el ID del usuario
 
-        // Guardar los datos de la mascota en la colección "prueba" en Firestore
+        // Guardar los datos de la mascota en la colección "mascotas" en Firestore
         db.collection("prueba")
                 .add(mas)
                 .addOnSuccessListener(documentReference -> {
@@ -147,6 +145,7 @@ public class mascota extends AppCompatActivity {
                     intent.putExtra("raza", raza);
                     intent.putExtra("genero", genero);
                     intent.putExtra("peso", peso);
+                    intent.putExtra("edad", edad);
                     intent.putExtra("imagenURL", imageUrl);
                     startActivity(intent);
                     finish();
@@ -155,7 +154,6 @@ public class mascota extends AppCompatActivity {
                     Toast.makeText(mascota.this, "Error al ingresar mascota", Toast.LENGTH_SHORT).show();
                 });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
