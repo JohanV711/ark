@@ -18,7 +18,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -246,6 +248,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnConectar"
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#D54F10"
+                android:text="Conoce nuestra página web"
+                app:cornerRadius="15dp" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
