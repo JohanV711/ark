@@ -1,107 +1,75 @@
 package com.cumn.ark;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.LinearLayout;
-import android.graphics.drawable.BitmapDrawable;
-
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cumn.ark.locationService.MainActivityMaps;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class profile extends AppCompatActivity {
     ImageView img;
+    TextView edadTextView, generoTextView, razaTextView;
     Button buttonMaps;
-
-    // Agregar variables para mostrar los datos de la mascota
-    TextView nombreTextView, edadTextView, generoTextView, razaTextView;
-    LinearLayout segundoLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // Obtener referencias de los elementos de la interfaz de usuario
+        // Obtener referencias a los elementos de la interfaz de usuario
         img = findViewById(R.id.imageView2);
-        segundoLinearLayout = findViewById(R.id.fondo);
-        nombreTextView = findViewById(R.id.textView2);
-        edadTextView = findViewById(R.id.textView11);
+        edadTextView = findViewById(R.id.edad1);
         generoTextView = findViewById(R.id.textView12);
         razaTextView = findViewById(R.id.textView13);
         buttonMaps = findViewById(R.id.btn_map);
 
-        // Obtener los datos de la mascota pasados a través del Intent
-        Intent intent = getIntent();
-        if (intent != null) {
-            String nombre = intent.getStringExtra("nombre");
-            String edad = intent.getStringExtra("edad");
-            String genero = intent.getStringExtra("genero");
-            String raza = intent.getStringExtra("raza");
-            String imageUrl = intent.getStringExtra("imagenURL");
+        // Suponiendo que tengas el ID de la mascota almacenado en una variable llamada "mascotaId"
+        String mascotaId = "ID_DE_LA_MASCOTA"; // Reemplaza "ID_DE_LA_MASCOTA" con el ID real de la mascota
 
-            // Mostrar los datos en los TextView correspondientes
-            nombreTextView.setText(nombre);
-            edadTextView.setText(edad);
-            generoTextView.setText(genero);
-            razaTextView.setText(raza);
+        // Obtener una referencia a la colección "mascotas"
+        DocumentReference mascotaDocRef = FirebaseFirestore.getInstance().collection("mascotas").document(mascotaId);
 
-            // Cargar la imagen desde la URL en el LinearLayout como fondo en un AsyncTask
-            new LoadImageTask().execute(imageUrl);
-        }
+        // Realizar la consulta para obtener los datos de la mascota
+        mascotaDocRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                // La mascota existe, obtener sus datos
+                String edad = documentSnapshot.getString("edad");
+                String genero = documentSnapshot.getString("genero");
+                String raza = documentSnapshot.getString("raza");
 
-        // Configurar el botón para ir al mapa
+                // Establecer los valores obtenidos en los TextView correspondientes
+                edadTextView.setText("Edad: " + edad);
+                generoTextView.setText("Género: " + genero);
+                razaTextView.setText("Raza: " + raza);
+            } else {
+                // La mascota no existe
+                Toast.makeText(this, "La mascota no existe", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(e -> {
+            // Ocurrió un error al obtener los datos de la mascota
+            Toast.makeText(this, "Error al obtener los datos de la mascota: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
+
+        // Configurar el botón para abrir el mapa
         buttonMaps.setOnClickListener(view -> {
-            Intent mapsIntent = new Intent(getApplicationContext(), MainActivityMaps.class);
-            startActivity(mapsIntent);
+            Intent intent = new Intent(getApplicationContext(), MainActivityMaps.class);
+            startActivity(intent);
             finish();
         });
 
-        // Configurar el ImageView para ir a la pantalla de inicio
+        // Configurar el ImageView para regresar a la pantalla de inicio
         img.setOnClickListener(view -> {
-            Intent inicioIntent = new Intent(getApplicationContext(), inicio.class);
-            startActivity(inicioIntent);
+            Intent intent = new Intent(getApplicationContext(), inicio.class);
+            startActivity(intent);
             finish();
         });
-    }
-
-    // AsyncTask para cargar la imagen desde la URL en segundo plano
-    private class LoadImageTask extends AsyncTask<String, Void, Bitmap> {
-        @Override
-        protected Bitmap doInBackground(String... urls) {
-            String imageUrl = urls[0];
-            Bitmap bitmap = null;
-            try {
-                URL url = new URL(imageUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream inputStream = connection.getInputStream();
-                bitmap = BitmapFactory.decodeStream(inputStream);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return bitmap;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            if (bitmap != null) {
-                // Establecer la imagen como fondo del segundo LinearLayout
-                segundoLinearLayout.setBackground(new BitmapDrawable(getResources(), bitmap));
-            }
-        }
     }
 }
+
