@@ -46,6 +46,7 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
     private ImageButton back;
 
 
+    //Método para establecer un zoom mínio y crear marcadores cuando el mapa esté listo para usarse
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         map = googleMap;
@@ -54,6 +55,7 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
         createMarkerFromJson();
     }
 
+    //Lee y parsea el archivo json que contiene las coordenadas de los marcadores(veterinarios).
     private void createMarkerFromJson() {
         try {
             // Leer el archivo JSON
@@ -77,19 +79,20 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
             e.printStackTrace();
         }
     }
-
+//Crea un marcador en una localización específica
     private void createMarker() {
         LatLng favoritePlace = new LatLng(40.417031, -3.703401);
-        map.addMarker(new MarkerOptions().position(favoritePlace).title("Mi playa favorita!"));
+        map.addMarker(new MarkerOptions().position(favoritePlace));
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(favoritePlace, 18f), 4000, null);
     }
 
+    //Método principal que crea la actividad.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_maps);
 
-        //boton atrás
+        //boton para ir atrás
         back=back = findViewById(R.id.backMaps);
         back.setOnClickListener(v -> {
             Intent intent = new Intent(this, profile.class);
@@ -97,6 +100,7 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
             finish();
         });
 
+        //Configura el botón para calcular la ruta
         Button btnCalculate = findViewById(R.id.btnCalculateRoute);
         btnCalculate.setOnClickListener(v -> {
             start = "";
@@ -121,6 +125,7 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
         createMapFragment();
     }
 
+    //Inicializa el fragmento del mapa.
     private void createMapFragment() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMap);
         if (mapFragment != null) {
@@ -128,7 +133,9 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
         }
     }
 
+    //Obtiene la ruta entre dos puntos
     private void createRoute() {
+        //Uso de retrofit para hacer la llamada a la API de OpenRouteService.
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openrouteservice.org/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -155,6 +162,7 @@ public class MainActivityMaps extends AppCompatActivity implements OnMapReadyCal
     }
 
 
+    //Dibuja la ruta.
     private void drawRoute(RouteResponse routeResponse) {
         PolylineOptions polyLineOptions = new PolylineOptions();
         List<List<Double>> coordinates = routeResponse.getFeatures().get(0).getGeometry().getCoordinates();

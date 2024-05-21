@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -36,10 +37,19 @@ public class mascota extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseStorage storage;
 
+    private ImageButton back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascota);
+
+        back = findViewById(R.id.backMascotaRegistro);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(this, inicio.class);
+            startActivity(intent);
+            finish();
+        });
 
         // Inicializar Firebase
         mAuth = FirebaseAuth.getInstance();
