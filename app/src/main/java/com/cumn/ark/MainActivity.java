@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-/*ola pruea*/
+    /*ola pruea*/
     FirebaseUser user;
     FirebaseAuth auth;
     TextView textView;
