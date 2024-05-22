@@ -23,9 +23,6 @@
             android:name=".inicio"
             android:exported="false" />
         <activity
-            android:name=".agenda.CalendarActivity" />
-
-        <activity
             android:name=".profile"
             android:exported="false" />
         <activity android:name=".mascota"
@@ -38,6 +35,10 @@
 
         <activity
             android:name=".auth.Register"
+            android:exported="false" />
+
+        <activity
+            android:name=".agenda.CalendarActivity"
             android:exported="false" />
 
         <activity
