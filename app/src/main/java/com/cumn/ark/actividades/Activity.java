@@ -1,4 +1,4 @@
-package com.cumn.ark;
+package com.cumn.ark.actividades;
 
 public class Activity {
     private String title;

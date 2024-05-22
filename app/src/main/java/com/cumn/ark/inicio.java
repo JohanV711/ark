@@ -9,12 +9,12 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cumn.ark.actividades.ActivityPet;
 import com.cumn.ark.agenda.CalendarActivity;
 
 public class inicio extends AppCompatActivity {
     Button buttonReg;
     Button buttonCalendar;
-    Button botonActividad;
     ImageView img;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,6 @@ public class inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         buttonCalendar = findViewById(R.id.btn_calendar);
         buttonReg = findViewById(R.id.btn_register);
-        botonActividad = findViewById(R.id.btn_actividad);
         img = findViewById(R.id.ajuste);
         buttonReg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -47,6 +46,7 @@ public class inicio extends AppCompatActivity {
 
         });
 
+        Button botonActividad = findViewById(R.id.btn_actividad);
         botonActividad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

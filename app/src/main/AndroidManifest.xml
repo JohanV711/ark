@@ -44,7 +44,7 @@
             android:name=".agenda.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityPet"
+            android:name=".actividades.ActivityPet"
             android:exported="false" />
         <activity
             android:name=".auth.Login"
@@ -58,7 +58,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -70,5 +69,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

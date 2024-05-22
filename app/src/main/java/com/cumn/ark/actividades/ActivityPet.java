@@ -1,4 +1,4 @@
-package com.cumn.ark;
+package com.cumn.ark.actividades;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cumn.ark.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -45,6 +46,7 @@ public class ActivityPet extends AppCompatActivity {
         activityList = new ArrayList<>();
     }
 
+
     private void createActivity() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -58,23 +60,23 @@ public class ActivityPet extends AppCompatActivity {
 
     private void createNewActivity(View view, AlertDialog alertDialog) {
         TextInputEditText titleActividad = view.findViewById(R.id.textViewNameActivity);
-        TextInputEditText descriptionActividad = view.findViewById(R.id.textViewDescripcionActividad);
-        Button cancelButton = view.findViewById(R.id.calendarView);
+        TextInputEditText descriptionActividad = view.findViewById(R.id.textViewDescriptionActivity);
+        Button cancelButton = view.findViewById(R.id.cancelaId);
         Button acceptButton = view.findViewById(R.id.aceptaId);
 
         cancelButton.setOnClickListener(v -> alertDialog.dismiss());
         acceptButton.setOnClickListener(v -> {
-            String titulo = String.valueOf(titleActividad.getText());
-            String descripcion = String.valueOf(descriptionActividad.getText());
-            if (TextUtils.isEmpty(titulo)) {
+            String title = String.valueOf(titleActividad.getText());
+            String description = String.valueOf(descriptionActividad.getText());
+            if (TextUtils.isEmpty(title)) {
                 Toast.makeText(ActivityPet.this, "Introduzca una nueva actividad", Toast.LENGTH_SHORT).show();
             } else {
                 alertDialog.dismiss();
                 Activity act = new Activity();
-                act.setTitle(titulo);
-                act.setDescription(descripcion);
+                act.setTitle(title);
+                act.setDescription(description);
+                activityList.add(act);
             }
         });
-
     }
 }

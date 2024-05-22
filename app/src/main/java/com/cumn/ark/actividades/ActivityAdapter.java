@@ -1,4 +1,4 @@
-package com.cumn.ark;
+package com.cumn.ark.actividades;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.cumn.ark.R;
 
 import java.util.List;
 
@@ -21,13 +23,13 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
     }
 
     public static class ActivityViewHolder extends RecyclerView.ViewHolder {
-        TextView activityTitle;
-        TextView activityDescription;
+        TextView title;
+        TextView description;
 
         public ActivityViewHolder(View itemView) {
             super(itemView);
-            activityTitle = itemView.findViewById(R.id.textViewNameActivity);
-            activityDescription = itemView.findViewById(R.id.textViewDescripcionActividad);
+            title = itemView.findViewById(R.id.textViewNameActivity);
+            description = itemView.findViewById(R.id.textViewDescriptionActivity);
         }
     }
 
@@ -41,12 +43,12 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
     @Override
     public void onBindViewHolder(@NonNull ActivityViewHolder holder, int position) {
         Activity activity = activities.get(position);
-        holder.activityTitle.setText(activity.getTitle());
-        holder.activityDescription.setText(activity.getDescription());
+        holder.title.setText(activity.getTitle());
+        holder.description.setText(activity.getDescription());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return activities.size();
     }
 }
