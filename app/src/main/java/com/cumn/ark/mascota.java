@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -96,13 +95,9 @@ public class mascota extends AppCompatActivity {
                     storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                         String imageUrl = uri.toString();
                         savePetData(imageUrl);
-                    }).addOnFailureListener(e -> {
-                        Toast.makeText(mascota.this, "Error al obtener la URL de la imagen", Toast.LENGTH_SHORT).show();
-                    });
+                    }).addOnFailureListener(e -> Toast.makeText(mascota.this, "Error al obtener la URL de la imagen", Toast.LENGTH_SHORT).show());
                 })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(mascota.this, "Error al subir la imagen", Toast.LENGTH_SHORT).show();
-                });
+                .addOnFailureListener(e -> Toast.makeText(mascota.this, "Error al subir la imagen", Toast.LENGTH_SHORT).show());
     }
 
     private void savePetData(String imageUrl) {
