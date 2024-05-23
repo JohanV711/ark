@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:text="Cancelar"
+                android:text="@string/cancelar"
                 android:textSize="11sp"
                 android:backgroundTint="@color/gray"
                 app:tint="@color/white" />
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="Aceptar"
+                android:text="@string/aceptar"
                 android:textSize="11sp"
                 android:backgroundTint="@color/lavender"
                 app:tint="@color/white">
@@ -82,3 +82,4 @@
     </LinearLayout>
     
 </androidx.cardview.widget.CardView>
+

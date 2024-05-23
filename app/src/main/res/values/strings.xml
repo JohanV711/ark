@@ -8,12 +8,11 @@
     <string name="click_to_login">Click to login</string>
     <string name="hello_world">Hello world!</string>
     <string name="sign_out">SignOut</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calendario">Calendario</string>
     <string name="horario">Horario</string>
     <string name="proximos_eventos">Proximos eventos</string>
-    <string name="calendar">Calendario2</string>
+    <string name="calendar">Calendario</string>
     <string name="seleccionar_hora">Seleccionar Hora</string>
     <string name="nuevo_evento">Nuevo evento:</string>
     <string name="titulo">Título</string>
@@ -24,4 +23,15 @@
     <string name="ya_tienes_cuenta_inicia_sesion">¿Ya tienes cuenta? Inicia sesión</string>
     <string name="registrarse">Registrarse</string>
     <string name="crea_una_cuenta">Crea una cuenta</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="correo">Correo</string>
+    <string name="hola">Hola,</string>
+    <string name="registra_tu_mascota">REGISTRA TU MASCOTA</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="consulta_el_mapa_y_encuentra_lo_que_buscas">Consulta el mapa y encuentra lo que buscas</string>
+    <string name="textview">TextView</string>
+    <string name="edad">Edad</string>
+    <string name="genero">Genero</string>
+    <string name="raza">Raza</string>
 </resources>

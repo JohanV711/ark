@@ -17,10 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cumn.ark.MainActivity;
 import com.cumn.ark.R;
 import com.cumn.ark.agenda.Utilities.Event;
 import com.cumn.ark.agenda.Utilities.EventAdapter;
+import com.cumn.ark.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -133,8 +133,4 @@ public class CalendarActivity extends AppCompatActivity {
             visualizeEvent(filteredEvents);
         });
     }
-
 }
-
-
-

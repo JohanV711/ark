@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "321296536519",
+    "firebase_url": "https://ark-cumn-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ark-cumn",
+    "storage_bucket": "ark-cumn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321296536519:android:db12bce80a6c0d023c3fe2",
+        "android_client_info": {
+          "package_name": "com.cum.ark"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCraO_99i7MrSEpOijp8HiS-Bj6uZgTNP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321296536519:android:29809dd6d820a7033c3fe2",
+        "android_client_info": {
+          "package_name": "com.cumn.ark"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCraO_99i7MrSEpOijp8HiS-Bj6uZgTNP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     id("com.google.gms.google-services")
+
 }
 
 android {
@@ -39,8 +40,10 @@ android {
     }
 }
 
+
 dependencies {
 
+    implementation(libs.picasso)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -52,6 +55,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofitConverter)
     implementation(libs.kotlinCoroutines)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.firestore)
     implementation(libs.legacy.support.v4)
     implementation(libs.recyclerview)
     implementation(libs.cardview)

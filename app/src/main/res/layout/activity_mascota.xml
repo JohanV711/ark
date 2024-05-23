@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/fondoini">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_back"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/backMascotaRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:layout_marginTop="26dp"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            android:tint="@color/white"
+            android:layout_marginStart="30dp"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="01"
+            android:tint="@color/white"
+            android:src="@drawable/logo"
+            android:layout_margin="13dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="53dp">
+
+        </ImageView>
+
+
+
+
+    </LinearLayout>
+
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,38 +64,11 @@
             android:layout_height="200dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="105dp"
-                android:background="@drawable/top_back"
-                android:orientation="vertical">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="5dp">
-
-
-
-                    <ImageView
-                        android:id="@+id/logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="150dp"
-                        app:srcCompat="@drawable/log"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-30dp"
-
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -69,7 +85,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
+                android:layout_height="549dp"
 
                 android:background="@drawable/top_back">
 
@@ -92,65 +108,99 @@
                     android:id="@+id/tipo"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Tipo"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/name"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/raza"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Raza"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/tipo"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tipo" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/genero"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Genero"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/raza"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/raza" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/peso"
                     android:layout_width="270dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
                     android:ems="10"
                     android:hint="Peso en kg"
-                    android:textColorHint="#FFFFFF"
                     android:inputType="text"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/genero"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genero" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edad"
+                    android:layout_width="270dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:hint="Edad"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/peso" />
+
+
+
+
+                <Button
+                    android:id="@+id/btn_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/button_redondo"
+                    android:text="FOTO"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.703"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edad" />
+
                 <Button
                     android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/button_redondo"
                     android:text="Continuar"
                     android:textColor="@color/white"
-                    android:background="@drawable/button_redondo"
-                    app:layout_constraintTop_toBottomOf="@+id/peso"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+                    app:layout_constraintHorizontal_bias="0.31"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edad" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -160,4 +210,4 @@
 
         </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
