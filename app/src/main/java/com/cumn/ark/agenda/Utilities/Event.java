@@ -23,7 +23,7 @@ public class Event{
         return title;
     }
     public String getTime() {
-        return hour;
+            return hour;
     }
     public String getDescription() {
         return description;

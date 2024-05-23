@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Button" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@drawable/button_redondo</item>
+    </style>
+
+</resources>

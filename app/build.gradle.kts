@@ -33,6 +33,11 @@ android {
     }
     buildToolsVersion = "34.0.0"
 
+
+    buildFeatures{
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 
@@ -44,10 +49,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
-
     //Maps
     implementation(libs.googlePlayServicesMaps)
-
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofitConverter)
@@ -55,7 +58,9 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.firestore)
-
+    implementation(libs.legacy.support.v4)
+    implementation(libs.recyclerview)
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

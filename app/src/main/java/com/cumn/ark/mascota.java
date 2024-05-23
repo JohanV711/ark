@@ -46,7 +46,7 @@ public class mascota extends AppCompatActivity {
 
         back = findViewById(R.id.backMascotaRegistro);
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, inicio.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         });
@@ -64,20 +64,10 @@ public class mascota extends AppCompatActivity {
         edadEditText = findViewById(R.id.edad);
 
         Button selectImageButton = findViewById(R.id.btn_photo);
-        selectImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openImagePicker();
-            }
-        });
+        selectImageButton.setOnClickListener(v -> openImagePicker());
 
         Button registerButton = findViewById(R.id.btn_register);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveDataToFirestore();
-            }
-        });
+        registerButton.setOnClickListener(v -> saveDataToFirestore());
     }
 
     private void openImagePicker() {

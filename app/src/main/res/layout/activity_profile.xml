@@ -7,13 +7,11 @@
     android:background="@drawable/fondoini">
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,25 +21,22 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="260dp"
                 android:id="@+id/fondo"
                 android:background="@drawable/conejo"
                 android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="5dp">
 
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
-                        android:layout_height="55dp"
-                        app:srcCompat="@drawable/atras"
-                        android:layout_marginStart="-150dp"
-                        android:layout_marginTop="0dp"
+                        android:layout_height="wrap_content"
+                        android:tint="@color/white"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginStart="27dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        app:srcCompat="@drawable/baseline_arrow_back_ios_24"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         />
@@ -68,39 +63,33 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/im" />
 
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="wrap_content">
+
                 <ImageView
                     android:id="@+id/edad"
                     android:layout_width="wrap_content"
                     android:layout_height="75dp"
                     app:srcCompat="@drawable/cuadro"
-
                     android:layout_marginStart="-100dp"
                     android:layout_marginTop="10dp"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     />
-
 
                 <ImageView
                     android:id="@+id/genero"
                     android:layout_width="wrap_content"
                     android:layout_height="75dp"
                     app:srcCompat="@drawable/cuadro"
-
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="10dp"
-
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:id="@+id/peso"
                     android:layout_width="wrap_content"
@@ -111,14 +100,13 @@
                     android:layout_marginTop="10dp"
 
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/edad1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Edad"
+                    android:text="@string/edad"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     android:layout_marginStart="78dp"
@@ -131,7 +119,7 @@
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Genero"
+                    android:text="@string/genero"
                     android:textColor="@color/white"
                     android:layout_marginStart="177dp"
                     android:layout_marginTop="21dp"
@@ -143,7 +131,7 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Raza"
+                    android:text="@string/raza"
                     android:textColor="@color/white"
 
                     android:layout_marginStart="276dp"
@@ -157,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:shadowColor="#168875"
-                    android:text="TextView"
+                    android:text="@string/textview"
                     android:textColor="#168875"
 
                     android:layout_marginStart="75dp"
@@ -170,7 +158,7 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/textview"
                     android:textColor="#168875"
 
                     android:layout_marginStart="175dp"
@@ -183,7 +171,7 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/textview"
                     android:textColor="#168875"
                     android:layout_marginStart="276dp"
                     android:layout_marginTop="50dp"
@@ -197,10 +185,10 @@
 
             <Button
                 android:id="@+id/btn_map"
-                android:text="Consulta el mapa y encuentra lo que buscas"
+                android:text="@string/consulta_el_mapa_y_encuentra_lo_que_buscas"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"/>
 
         </LinearLayout>
 

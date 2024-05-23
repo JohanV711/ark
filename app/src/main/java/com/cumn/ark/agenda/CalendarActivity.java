@@ -17,11 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cumn.ark.MainActivity;
 import com.cumn.ark.R;
 import com.cumn.ark.agenda.Utilities.Event;
 import com.cumn.ark.agenda.Utilities.EventAdapter;
-import com.cumn.ark.inicio;
+import com.cumn.ark.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -48,7 +47,7 @@ public class CalendarActivity extends AppCompatActivity {
         pickTimeBtn.setOnClickListener(v ->
                 createEventDialog());
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, inicio.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         });
@@ -134,5 +133,4 @@ public class CalendarActivity extends AppCompatActivity {
             visualizeEvent(filteredEvents);
         });
     }
-
 }

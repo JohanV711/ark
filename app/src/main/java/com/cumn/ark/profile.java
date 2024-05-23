@@ -71,7 +71,7 @@ public class profile extends AppCompatActivity {
 
         // Configurar el ImageView para ir a la pantalla de inicio
         img.setOnClickListener(view -> {
-            Intent inicioIntent = new Intent(getApplicationContext(), inicio.class);
+            Intent inicioIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(inicioIntent);
             finish();
         });

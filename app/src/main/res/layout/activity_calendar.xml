@@ -50,11 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="proximos_eventos"
+            android:text="@string/proximos_eventos"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="20dp"
             android:textColor="@color/black"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
