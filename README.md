@@ -19,4 +19,4 @@ sudo chown -R 472:472 grafana
 ```bash
 sudo docker-compose up -d
 ```
-a
+
